@@ -3,6 +3,7 @@ This repository has several springboot openshift template that build s2i image a
 
 
 | file | description|
+|------|------------|
 | build-dockerfile.sh| Dockerfile for s2i image|
 |s2i/java-s2i-build-image-bc.json| Example BuildConfig for Building s2i image|
 |s2i/java-s2i-build-image-template.json| Template to build s2i image|
