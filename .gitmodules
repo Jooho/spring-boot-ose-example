@@ -1,0 +1,3 @@
+[submodule "containers-quickstarts"]
+	path = containers-quickstarts
+	url = https://github.com/redhat-cop/containers-quickstarts.git

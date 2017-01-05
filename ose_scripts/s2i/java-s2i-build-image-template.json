@@ -1,0 +1,118 @@
+{
+	"kind": "Template",
+	"apiVersion": "v1",
+	"metadata": {
+		"annotations": {
+			"description": "Java builder and sample application",
+			"iconClass": "icon-openjdk",
+			"tags": "java"
+		},
+		"name": "java-s2i-build-image"
+	},
+	"labels": {
+		"template": "java-s2i-build-image"
+	},
+	"parameters": [
+		{
+			"description": "The name for the builder.",
+			"displayName": "Builder name",
+			"name": "BUILDER_NAME",
+			"value": "s2i-java",
+			"required": true
+		},
+		{
+			"description": "Git source URI for the builder",
+			"displayName": "Builder source url",
+			"name": "BUILDER_SOURCE_REPOSITORY_URL",
+			"value": "https://github.com/redhat-cop/containers-quickstarts.git",
+			"required": true
+		},
+		{
+			"description": "Builder source branch/tag reference.",
+			"displayName": "Builder source branch/tag reference.",
+			"name": "BUILDER_SOURCE_REPOSITORY_REF",
+			"value": "master",
+			"required": false
+		},
+		{
+			"description": "Path within Git project to build containing the Java builder; empty for root project directory.",
+			"displayName": "Builder context directory.",
+			"name": "BUILDER_CONTEXT_DIR",
+			"value": "s2i-java",
+			"required": false
+		}
+	],
+	"objects": [
+		{
+			"kind": "ImageStream",
+			"apiVersion": "v1",
+			"metadata": {
+				"name": "rhel7",
+				"labels": {
+					"build": "${BUILDER_NAME}"
+				}
+			},
+			"spec": {
+				"dockerImageRepository": "registry.access.redhat.com/rhel7/rhel"
+			}
+		},
+		{
+			"kind": "ImageStream",
+			"apiVersion": "v1",
+			"metadata": {
+				"name": "${BUILDER_NAME}",
+				"labels": {
+					"build": "${BUILDER_NAME}"
+				}
+			}
+		},
+		{
+			"kind": "BuildConfig",
+			"apiVersion": "v1",
+			"metadata": {
+				"name": "${BUILDER_NAME}",
+				"labels": {
+					"build": "${BUILDER_NAME}"
+				}
+			},
+			"spec": {
+				"triggers": [
+					{
+						"type": "ConfigChange"
+					},
+					{
+						"type": "ImageChange",
+						"imageChange": {}
+					}
+				],
+				"source": {
+					"type": "Git",
+					"git": {
+						"uri": "${BUILDER_SOURCE_REPOSITORY_URL}",
+						"ref": "${BUILDER_SOURCE_REPOSITORY_REF}"
+					},
+					"contextDir": "${BUILDER_CONTEXT_DIR}"
+				},
+				"strategy": {
+					"type": "Docker",
+					"dockerStrategy": {
+						"from": {
+							"kind": "ImageStreamTag",
+							"name": "rhel7:7.2"
+						}
+					}
+				},
+				"output": {
+					"to": {
+						"kind": "ImageStreamTag",
+						"name": "${BUILDER_NAME}:latest"
+					}
+				}
+			}
+		}
+	
+	]
+
+	
+}
+
