@@ -7,10 +7,10 @@
 			"iconClass": "icon-openjdk",
 			"tags": "java"
 		},
-		"name": "java-s2i"
+		"name": "s2i-java"
 	},
 	"labels": {
-		"template": "java-s2i"
+		"template": "s2i-java"
 	},
 	"parameters": [
 		{
@@ -113,7 +113,8 @@
 					"sourceStrategy": {
 						"from": {
 							"kind": "ImageStreamTag",
-							"name": "${BUILDER_NAME}:latest"
+							"name": "s2i-java:latest"
+                                                        "namespace": "openshift"
 						}
 					}
 				},
