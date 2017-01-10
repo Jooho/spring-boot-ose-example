@@ -113,7 +113,7 @@
 					"sourceStrategy": {
 						"from": {
 							"kind": "ImageStreamTag",
-							"name": "s2i-java:latest"
+							"name": "s2i-java:latest",
                                                         "namespace": "openshift"
 						}
 					}

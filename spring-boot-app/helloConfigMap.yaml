@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: hello
+data:
+  application.yaml: |-
+    hello:
+      message: Kubernetes ConfigMap
