@@ -2,10 +2,11 @@
 
 This tutorial shows how to create simple spring application.
 
+## Fork Sample Application "spring-cloud-kubernetes-sample"
 
-## Clone Git Repository
+## Clone the Forked Git Repository
 ```
-$ git clone https://github.com/Jooho/spring-cloud-kubernetes-sample.git
+$ git clone https://github.com/${YOUR_GITHUB}/spring-cloud-kubernetes-sample.git
 
 ```
 
