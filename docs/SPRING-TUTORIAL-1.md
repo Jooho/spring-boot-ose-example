@@ -26,7 +26,7 @@ $ mvn package && java -jar target/gs-spring-boot-0.1.0.jar
  :: Spring Boot ::        (v1.2.2.RELEASE)
 
 ....
-
+```
 ## Test with curl command
 ```
 $ curl localhost:8080
