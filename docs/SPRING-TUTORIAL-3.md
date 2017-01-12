@@ -53,5 +53,5 @@ Greetings from Spring Boot! - It is from Local
 
 Now, you have spring boot application running on OpenShift Container Platform!
 
-Move to next tutorial.
+Move to [next tutorial](https://github.com/Jooho/spring-boot-ose-example/blob/master/docs/SPRING-TUTORIAL-4.md).
 
