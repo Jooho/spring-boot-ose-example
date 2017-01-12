@@ -31,6 +31,7 @@ public class HelloController {
 ## ADD application.properties
 
 ```
+$ mkdir src/main/resources
 $ echo "hello.message=Local" > src/main/resources/application.properties
 ```
 
