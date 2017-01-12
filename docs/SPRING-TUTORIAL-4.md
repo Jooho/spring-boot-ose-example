@@ -63,6 +63,11 @@ NAME      DATA      AGE
 hello     1         2s
 
 ```
+## Add permission to Service Account
+```
+oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)
+```
+
 
 ## Redeploy the application 
 ```
