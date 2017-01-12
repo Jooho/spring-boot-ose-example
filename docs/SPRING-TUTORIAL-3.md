@@ -2,7 +2,7 @@
 
 This tutorial deploy your application with S2I-java builder image.
 
-## Create S2I image for spring boot ( There is no official for executable jar )
+## Create S2I image for spring boot ( There is no official image for deploying executable jar )
 
 
 ```
