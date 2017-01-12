@@ -4,10 +4,16 @@ This tutorial deploy your application with S2I-java builder image.
 
 ## Create S2I image for spring boot ( There is no official for executable jar )
 
+
 ```
+$ ls 
+spring-boot-test  
+
 $ git clone https://github.com/Jooho/spring-boot-ose-example
 
 $ cd spring-boot-ose-example/ose_scripts/s2i
+
+$ oc login 
 
 $ oc new-project spring-boot-s2i-demo
 
@@ -21,7 +27,7 @@ s2i-java   172.30.100.175:5000/spring-boot-s2i-demo/s2i-java   latest           
 
 ## Create s2i-java template
 ```
-$ cd spring-boot-ose-example/ose_scripts/spring-cloud-kubernetes-sample
+$ cd ../spring-cloud-kubernetes-sample
 
 $ oc create -f spring-boot-s2i-template.json
 
@@ -29,7 +35,7 @@ $ oc create -f spring-boot-s2i-template.json
 
 ## Create new app using s2i-java template 
 ```
-$ oc new-app --template=s2i-java -p APPLICATION_SOURCE_REPOSITORY_URL=https://github.com/Jooho/spring-cloud-kubernetes-sample.git,APPLICATION_CONTEXT_DIR=''
+$ oc new-app --template=s2i-java -p APPLICATION_SOURCE_REPOSITORY_URL=https://github.com/${YOUR_GITHUB}/spring-cloud-kubernetes-sample.git,APPLICATION_CONTEXT_DIR=''
 ```
 
 
