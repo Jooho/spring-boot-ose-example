@@ -60,5 +60,5 @@ Greetings from Spring Boot! - It is from Local
 
 Now, you have spring boot application that use application.properies !.
 
-Move to next tutorial.
+Move to [next tutorial](https://github.com/Jooho/spring-boot-ose-example/blob/master/docs/SPRING-TUTORIAL-3.md).
 

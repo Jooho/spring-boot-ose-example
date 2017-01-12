@@ -3,7 +3,7 @@
 This tutorial shows how to create simple spring application.
 
 ## Fork Sample Application "spring-cloud-kubernetes-sample"
-
+[spring-cloud-kubernetes-sample](https://github.com/Jooho/spring-cloud-kubernetes-sample)
 ## Clone the Forked Git Repository
 ```
 $ git clone https://github.com/${YOUR_GITHUB}/spring-cloud-kubernetes-sample.git
@@ -37,5 +37,5 @@ Greetings from Spring Boot!
 
 Now, you have simple spring boot application !.
 
-Move to next tutorial.
+Move to [next tutorial](https://github.com/Jooho/spring-boot-ose-example/blob/master/docs/SPRING-TUTORIAL-2.md).
 

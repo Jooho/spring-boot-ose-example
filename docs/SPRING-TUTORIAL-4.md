@@ -8,6 +8,8 @@ Please add following values to proper location in pom.xml
 
 *spring-cloud-kubenetes-sample/pom.xml*
 ```
+vi spring-cloud-kubenetes-sample/pom.xml
+
 <properties>
         <spring-cloud.version>Brixton.SR7</spring-cloud.version>
         <spring-cloud-kubernetes.version>0.1.4</spring-cloud-kubernetes.version>
@@ -39,23 +41,37 @@ Please add following values to proper location in pom.xml
 
 ```
 
-## Create ConfigMap
-
+## Update application.properties
 ```
-$ cd spring-cloud-kubenetes-sample
+hello.message=Local
+spring.application.name=hello      <===== Add
+```
 
-$ oc create -f helloConfigMap.yaml
+## Push source to github repositories
+```
+git add .
+git commit -m "update source"
+git push
+```
+
+## Create ConfigMap
+```
+$ oc create -f spring-cloud-kubenetes-sample/helloConfigMap.yaml
 
 $ oc get configmap 
 NAME      DATA      AGE
 hello     1         2s
 
 ```
+## Add permission to Service Account
+```
+oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)
+```
+
 
 ## Redeploy the application 
 ```
-$ oc deploy dc/java-app --latest
-
+$ oc start-build java-app
 ```
 
 ## Test with curl command
