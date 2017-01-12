@@ -37,5 +37,5 @@ Greetings from Spring Boot!
 
 Now, you have simple spring boot application !.
 
-Move to next tutorial.
+Move to [next tutorial](https://github.com/Jooho/spring-boot-ose-example/blob/master/docs/SPRING-TUTORIAL-2.md).
 
